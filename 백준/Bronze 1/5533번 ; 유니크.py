@@ -4,10 +4,10 @@
 # 2 <= N <= 200
 N = int(input())
 
-player_scores = []
+players_cards = []
 
-for i in range(N):
-    one_player_score = input().split(' ')
+for player_index in range(N):
+    one_player_cards = input().split(' ')
 
-    player_scores.append(one_player_score)
+    players_cards.append(one_player_cards)
 
