@@ -7,4 +7,9 @@ while True:
     if n == 0:
         break
     else:
-        for i in range(n):
+        repeat_num = ['00', '11', '22', '33', '44', '55', '66', '77', '88', '99']
+
+        number = 1
+
+        while True:
+            if str(number)
