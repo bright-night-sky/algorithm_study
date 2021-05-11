@@ -5,12 +5,11 @@
 # 문장의 길이는 최대 100입니다.
 diary = input()
 
+vowels = ['a', 'e', 'i', 'o', 'u']
+
 origin = ''
 
-vowel = ['a', 'e', 'i', 'o', 'u']
+diary_length = len(diary)
 
-for index in range(len(diary)):
-    if diary[index] == 'p':
-
-    else:
-        origin += diary[index]
+for index in range(diary_length):
+    if diary[index] in vowels and diary[index:index+2] == (diary[index] + 'p' + diary[index]):
