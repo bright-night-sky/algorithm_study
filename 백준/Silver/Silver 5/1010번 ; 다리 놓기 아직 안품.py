@@ -1,18 +1,17 @@
 # https://www.acmicpc.net/problem/1010
 
-# 테스트 케이스 개수 T 입력
-T = int(input())
+from sys import stdin
+from itertools import permutations
 
-# 각 테스트 케이스 실행
-for i in range(0, T):
-    # 강의 서쪽과 동쪽에 있는 사이트의 개수 N, M 입력
-    # 정수, 0 < N <= M < 30
-    N, M = map(int, input().split(' '))
+T = int(stdin.readline().rstrip())
 
-    result = 1
+cases_cnt = 1
 
-    for i in range(1, N+1):
-        result *= M
-        M -= 1
+for test_case_idx in range(T):
+    N, M = map(int, stdin.readline().rstrip().split(' '))
 
-    print(result)
+    for num in range(M, M - N, -1):
+        print(num)
+        cases_cnt *= num
+
+    print(int(cases_cnt))

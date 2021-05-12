@@ -1,15 +1,14 @@
 # https://www.acmicpc.net/problem/4659
 
-while True:
-    password = input()
+from sys import stdin
 
-    if password == "end":
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+while True:
+    test_case = stdin.readline().rstrip()
+
+    if test_case == "end":
         break
     else:
-        vowels = ['a', 'e', 'i', 'o', 'u']
-
-        vowel_count = 0
-
-        for vowel in vowels:
-            vowel_count += password.count(vowel)
-
+        is_vowel_in = False
+        is_
