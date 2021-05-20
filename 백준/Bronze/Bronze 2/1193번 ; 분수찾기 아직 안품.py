@@ -1,32 +1,30 @@
 # https://www.acmicpc.net/problem/1193
 
-# X 입력
-# 1 <= X <= 10,000,000
-X = int(input())
+from sys import stdin
 
-# 1/1 => 분자, 분모의 합 : 2
-# 1/2 2/1 => 분자, 분모의 합 : 3
-# 3/1 2/2 1/3 => 분자, 분모의 합 : 4
-# 1/4 2/3 3/2 4/1 => 분자, 분모의 합 : 5
-# 5/1 4/2 3/3 2/4 1/5 = > 분자, 분모의 합 : 6
-# 순으로 잘라서 생각했다.
-# 분자, 분모의 합이 짝수인 경우 분모가 1부터 시작하고
-# 분자, 분모의 합이 홀수인 경우 분자가 1부터 시작한다.
+X = int(stdin.readline())
 
-# 분자, 분모를 더해서 홀수, 짝수인 경우를 저장하는 변수
-is_even = True
-
-# 분자, 분모의 합을 저장하는 변수 : 2부터 1씩 증가한다.
-sum = 2
-
-# X까지 카운팅하는 변수
-X_count = 0
-
+cnt = 1
+fraction_section = 0
 while True:
-    X_count += 1
-
-    if is_even:
-        pass
-
-    if X == X_count:
+    if X < fraction_section + cnt:
         break
+    else:
+        fraction_section += cnt
+        cnt += 1
+
+print(fraction_section, cnt)
+
+remain = X - fraction_section
+if cnt % 2 == 0:
+    top = 1
+    bottom = cnt - top
+else:
+    bottom = 0
+    top = cnt - bottom
+
+    for idx in range(remain):
+        bottom += 1
+        top = cnt - bottom
+
+    print(f"{top}/{bottom}")
