@@ -2,21 +2,26 @@
 
 from sys import stdin
 
-# 첫째 줄에는 반의 학생 수를 나타내는 정수를 입력합니다.
-students_count = int(stdin.readline().rstrip())
+students_cnt = int(stdin.readline().rstrip())
 
-students_classes = []
+each_students_class_num = []
 
-for student_index in range(students_count):
-    student_classes = list(map(int, stdin.readline().rstrip().split(' ')))
+for student_idx in range(students_cnt):
+    student_class_num = list(stdin.readline().rstrip().split(' '))
+    each_students_class_num.append(student_class_num)
 
-    students_classes.append(student_classes)
+each_students_same_class_cnt = []
 
-same_class_count = []
+for student1 in each_students_class_num:
+    same_cnt = 0
+    for student2 in each_students_class_num:
+        same_grade = [class1 for class1, class2 in zip(student1, student2) if class1 == class2]
+        same_cnt += len(same_grade)
+    each_students_same_class_cnt.append(same_cnt)
 
-cur_student_num = 0
+print(each_students_same_class_cnt)
 
-for grade in range(5):
-    for student_index in range(students_count):
+max_same_student = max(each_students_same_class_cnt)
+max_same_student_num = each_students_same_class_cnt.index(max_same_student) + 1
 
-
+print(max_same_student_num)
