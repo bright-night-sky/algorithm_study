@@ -1,10 +1,11 @@
 # https://www.acmicpc.net/problem/2581
 
-# 첫째 줄에 M을 입력합니다.
-M = int(input())
+from sys import stdin
 
-N = int(input())
+M = int(stdin.readline())
+N = int(stdin.readline())
 
-prime_number = [num for num in range(M, N + 1)]
+primes = [2, 3]
 
-for number in range(2, N + 1):
+for number in range(5, M + 1):
+    while True:
