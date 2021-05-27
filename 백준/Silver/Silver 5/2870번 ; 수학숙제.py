@@ -6,9 +6,19 @@ N = int(stdin.readline())
 
 numbers = []
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-
 for line_idx in range(N):
     line = stdin.readline().rstrip()
-    number = line.strip(alphabet)
+    number = ''
+
+    for character in line:
+        if ord('0') <= ord(character) <= ord('9'):
+            number += character
+        else:
+            if number != '':
+                numbers.append(number)
+                number = ''
+
+numbers.sort()
+
+for number in numbers:
     print(number)
