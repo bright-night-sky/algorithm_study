@@ -2,12 +2,9 @@
 
 from sys import stdin
 
-A, B, N = map(int, stdin.readline().rstrip().split(' '))
+A, B, N = map(int, stdin.readline().split(' '))
+float_num = str(A / B)
+print(float_num)
+float_part = float_num.split('.')[1]
 
-result = 0
-index = 0
-while True:
-    if index == N:
-        print(result)
-        break
-    else:
+print(float_part[N - 1])
