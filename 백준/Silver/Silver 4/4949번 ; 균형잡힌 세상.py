@@ -2,35 +2,36 @@
 
 from sys import stdin
 
-small_bracket_stack = []
-big_bracket_stack = []
+while True:
+    string = stdin.readline().rstrip()
 
-for line in stdin:
-    yes_or_no = "yes"
-    line = line.rstrip('\n')
-    print(line)
-
-    if not line:
+    if string == '.':
         break
 
-    for char in line:
-        if char == '(':
-            small_bracket_stack.append(char)
-        elif char == ')':
-            if not small_bracket_stack:
-                yes_or_no = "no"
-                break
-            small_bracket_stack.pop(-1)
-        elif char == '[':
-            big_bracket_stack.append(char)
-        elif char == ']':
-            if not big_bracket_stack:
-                yes_or_no = "no"
-                break
-            big_bracket_stack.pop(-1)
+    small_bracket_stack = []
+    big_bracket_stack = []
+    is_balance = "yes"
 
-    if not small_bracket_stack and not big_bracket_stack:
-        print(yes_or_no)
+    for character in string:
+        if character == '(':
+            small_bracket_stack.append(character)
+        elif character == ')':
+            if small_bracket_stack != []:
+                small_bracket_stack.pop()
+            else:
+                is_balance = "no"
+                break
+        elif character == '[':
+            big_bracket_stack.append(character)
+        elif character == ']':
+            if big_bracket_stack != []:
+                big_bracket_stack.pop()
+            else:
+                is_balance = "no"
+                break
+
+    if small_bracket_stack == [] and big_bracket_stack == []:
+        print(is_balance)
     else:
-        yes_or_no = "no"
-        print(yes_or_no)
+        is_balance = "no"
+        print(is_balance)
