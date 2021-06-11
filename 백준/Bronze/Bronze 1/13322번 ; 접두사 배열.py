@@ -1,16 +1,13 @@
 # https://www.acmicpc.net/problem/13322
 
-# 첫 줄에 알파벳 소문자로 이루어진 문자열 S를 입력합니다.
-# 문자열 S의 길이는 1 이상 100000 이하입니다.
-S = input()
+from sys import stdin
 
-suffix_array = []
 
-for index in range(len(S)):
-    suffix = S[index:len(S)]
-    suffix_array.append(suffix)
+S = stdin.readline().rstrip()
+chars = list(S)
+sorted_chars = sorted(chars)
 
-dictionary_suffix_array = sorted(suffix_array)
-
-for sorted_suffix in dictionary_suffix_array:
-    print(suffix_array.index(sorted_suffix))
+for idx in range(len(chars)):
+    cur_char_idx = sorted_chars.index(chars[idx])
+    print(cur_char_idx)
+    
