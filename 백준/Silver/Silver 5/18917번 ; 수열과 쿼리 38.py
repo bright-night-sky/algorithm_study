@@ -1,8 +1,9 @@
 # https://www.acmicpc.net/problem/18917
 
 from sys import stdin
+from collections import deque
 
-A = [0]
+A = deque([0])
 M = int(stdin.readline())
 
 for query_idx in range(M):
@@ -17,3 +18,9 @@ for query_idx in range(M):
     elif query[0] == '3':
         print(sum(A))
     elif query[0] == '4':
+        xor_result = A[0]
+
+        for idx in range(1, len(A)):
+            xor_result = A[idx] ^ xor_result
+
+        print(xor_result)
