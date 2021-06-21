@@ -11,7 +11,7 @@ T = int(stdin.readline())
 # 테스트 케이스의 개수 T만큼 반복합니다.
 for test_case_idx in range(T):
     # A, B를 공백으로 구분해 입력합니다.
-    # 0 < A, 0 < B
+    # 0 < A, B < 10
     # 각각 정수형으로 변환합니다.
     A, B = map(int, stdin.readline().split(' '))
 
