@@ -2,6 +2,7 @@
 
 from sys import stdin
 
+
 sentences = ''
 
 while True:
@@ -11,6 +12,16 @@ while True:
     except EOFError:
         break
 
-alphabet_count = []
+max_alphabet_cnt = 0
+max_alphabet = ''
 
-for alphabet_ascii in range(ord('a'), ord('z') + 1):
+for alphabet in 'abcdefghijklmnopqrstuvwxyz':
+    alphabet_cnt = sentences.count(alphabet)
+
+    if alphabet_cnt > max_alphabet_cnt:
+        max_alphabet_cnt = alphabet_cnt
+        max_alphabet = alphabet
+    elif alphabet_cnt == max_alphabet_cnt:
+        max_alphabet += alphabet
+
+print(max_alphabet)

@@ -1,14 +1,19 @@
 # https://www.acmicpc.net/problem/2408
 
-# 수의 개수 N을 입력합니다.
-# 1 <= N <= 10
-N = int(input())
+from sys import stdin
+from math import floor
+
+
+N = int(stdin.readline())
 
 equation = ''
 
-for num_or_operator_index in range(N):
-    num_or_operator = input()
+for _ in range(2 * N - 1):
+    oper = stdin.readline().rstrip()
+    equation += oper
 
-    equation += num_or_operator
+print(equation)
+equation_len = len(equation)
 
-print(eval(equation))
+for idx in range(1, equation_len, 2):
+    if equation[idx] == 
