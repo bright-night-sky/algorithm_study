@@ -10,9 +10,7 @@ for _ in range(T):
 
     for a in range(1, n - 1):
         for b in range(a + 1, n):
-            equation = (a ** 2 + b ** 2 + m) / (a * b)
-
-            if str(equation)[-2:] == '.0':
+            if (a ** 2 + b ** 2 + m) % (a * b) == 0:
                 ab_cnt += 1
 
     print(ab_cnt)
