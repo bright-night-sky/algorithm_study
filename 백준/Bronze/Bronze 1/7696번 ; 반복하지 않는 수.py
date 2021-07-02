@@ -2,14 +2,20 @@
 
 from sys import stdin
 
-# 0을 입력할 때까지 반복합니다.
-while True:
-    n = int(stdin.readline().rstrip())
 
-    if n == 0:
-        break
-    else:
-        number = 1
-        index = 1
-        while True:
-            if str(number)
+repeat_nums = ('11', '22', '33', '44', '55', '66', '77', '88', '99', '00')
+n = int(stdin.readline())
+
+num = 1
+n_cnt = 0
+while True:
+    if n_cnt == n:
+       print(num)
+       break
+
+    for repeat_num in repeat_nums:
+        if repeat_num in str(num):
+            break
+
+    num += 1
+    n_cnt += 1

@@ -1,23 +1,22 @@
 # https://www.acmicpc.net/problem/16462
 
-# 첫째 줄에 학생의 수 N을 입력합니다.
-# 1 <= N <= 1,000
-N = int(input())
+from sys import stdin
 
-# 학생의 점수를 모두 더해서 저장하는 변수를 선언합니다.
-total = 0
 
-# 학생의 수 N만큼 반복합니다.
+N = int(stdin.readline())
+Q = [None] * N
+
 for i in range(N):
-    Qi = input()
+    Qi = stdin.readline().rstrip()
 
-    Qi = Qi.replace('0', '9')
-    Qi = Qi.replace('6', '9')
+    Qi = Qi.replace('0', '9').replace('6', '9')
     Qi = int(Qi)
 
-    if Qi >= 100:
-        Qi = 100
+    if Qi > 100:
+        score = 100
 
-    total += Qi
+    Q[i] = Qi
 
-print(round(total / N))
+avg = sum(Q) / N
+
+print(avg)
